@@ -164,26 +164,67 @@ if(isset($_POST['logout'])){
   <button class="openbtn" onClick="openNav()">☰ Admin Panel</button>
         
 </div>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <h2 class="text-center">Learning Material</h2>
-                <form action="" method="post" enctype="multipart/form-data">
-                    <div class="input-group mb-3">
-                        <div class="custom-file">
-                            <input type="file" id="fileInput" name="file" class="custom-file-input">
-                            <label class="custom-file-label" for="fileInput">Choose PDF file</label>
-                        </div>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2 class="text-center">Learning Material</h2>
+            <form action="" method="post" enctype="multipart/form-data">
+            <?php
+// Assuming you have established a database connection already
+
+// Query to fetch unique subjects from the database
+$query = "SELECT DISTINCT course FROM students";
+
+$result = mysqli_query(mysqli_connect('localhost','root','','vtpfinal'), $query);
+
+if (!$result) {
+    die("Database query failed.");
+}
+?>
+
+<div class="form-group">
+    <label for="courseSelect">Select Course:</label>
+    <select class="form-control" id="courseSelect" name="course">
+        <?php
+        // Loop through the query results and generate option tags
+        while ($row = mysqli_fetch_assoc($result)) {
+            $course = $row['course'];
+            echo "<option value='$course'>$course</option>";
+        }
+        ?>
+    </select>
+</div>
+
+
+                <div class="form-group">
+                    <label for="semesterSelect">Select Semester:</label>
+                    <select class="form-control" id="semesterSelect" name="semester">
+                        <option value="">SELECT SEMESTER</option>
+                        <option value="Sem1">Sem1</option>
+                        <option value="Sem2">Sem2</option>
+                        <option value="Sem3">Sem3</option>
+                        <option value="Sem4">Sem4</option>
+                        <option value="Sem5">Sem5</option>
+                        <option value="Sem6">Sem6</option>
+                        <!-- Add more options for semesters as needed -->
+                    </select>
+                </div>
+                <div class="input-group mb-3">
+                    <div class="custom-file">
+                        <input type="file" id="fileInput" name="file" class="custom-file-input">
+                        <label class="custom-file-label" for="fileInput">Choose PDF file</label>
                     </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="fileName" name="name" placeholder="Enter File Name">
-                    </div>
-                    <input type="submit" value="Upload" name="upload" class="btn btn-primary btn-block">
-                </form>
-                <div id="fileList"></div>
-            </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="fileName" name="name" placeholder="Enter File Name">
+                </div>
+                <input type="submit" value="Upload" name="upload" class="btn btn-primary btn-block">
+            </form>
+            <div id="fileList"></div>
         </div>
     </div>
+</div>
+
 
     <?php
         require('conn.php');
@@ -194,8 +235,10 @@ if(isset($_POST['logout'])){
             move_uploaded_file($file_temp, $folder);
 
             $name = $_POST['name'];
+            $course= $_POST['course'];
+            $semester= $_POST['semester'];
 
-            $sql = "INSERT INTO material (name, file) VALUES ('$name', '$folder')";
+            $sql = "INSERT INTO material (name, file,course,sem) VALUES ('$name', '$folder','$course','$semester')";
             $res = mysqli_query($con, $sql);
 
             if($res){
