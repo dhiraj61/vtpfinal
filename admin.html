@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 5vw;
+}
+
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: #444;
+}
+
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+  
+  
+}
+
+.timetxt{
+    display: none;
+}
+.matetxt{
+    display: none;
+}
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+.feetxt{
+    display:none;
+}
+.wrapper{
+    width: 100%;
+    height: 100vh;
+
+    display: none;
+}
+.factxt{
+    width: 100%;
+    height: 100%;
+   
+   
+}
+.cards{
+   
+    width: 100%;
+    height: 100%;
+    margin: 4vw 2vw;
+    
+ 
+   
+}
+.card{
+    width: 25%;
+    height: 40%;
+ display: inline-block;
+    margin-top: 2vw ;
+    margin-left: 3vw;
+
+  
+}
+.card img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+</style>
+</head>
+<body>
+   
+<div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+  <a href="#" class="time">Time Table</a>
+  <a href="#" class="learn">Learning Material</a>
+  <a href="#" class="fees">Fees</a>
+  <a href="#" class="fac">Faculty</a>
+</div>
+
+
+<div id="main">
+  <button class="openbtn" onclick="openNav()">☰ Admin Panel</button>  
+ <div class="timetxt">
+    <h1>Time table will be shown here.</h1>
+ </div>
+ <div class="matetxt">
+    <h1>Learning Material</h1>
+    <label for="">Choose your file:</label><input type="file" >
+    <button>Upload</button>
+ </div>
+ <div class="feetxt">
+    <h1>fees structure will be shown here.</h1>
+ </div>
+ <div class="wrapper">
+    <div class="factxt">
+        <div class="cards">
+         <div class="card">
+            <img src="https://plus.unsplash.com/premium_photo-1671070290395-d53c20ba6ff0?q=80&w=1936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+         </div>
+         <div class="card">
+            <img src="https://images.unsplash.com/photo-1571260898938-0fe5057e7208?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+         </div>
+         <div class="card">
+            <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+         </div>
+         <div class="card">
+            <img src="https://images.unsplash.com/photo-1580894736036-7a68513983ec?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+         </div>
+         <div class="card">
+            <img src="https://plus.unsplash.com/premium_photo-1671070290395-d53c20ba6ff0?q=80&w=1936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+         </div>
+         <div class="card">
+            <img src="https://images.unsplash.com/photo-1571260898938-0fe5057e7208?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+         </div>
+         <div class="card">
+            <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+         </div>
+         <div class="card">
+            <img src="https://images.unsplash.com/photo-1580894736036-7a68513983ec?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+         </div>
+       
+        </div>
+      </div>
+    </div>
+</div>
+
+<script>
+    var time=document.querySelector('.time');
+    var learn=document.querySelector('.learn');
+    var fees=document.querySelector('.fees');
+    var fac=document.querySelector('.fac');
+    var timetxt=document.querySelector('.timetxt');
+    var matetxt=document.querySelector('.matetxt');
+    var feetxt=document.querySelector('.feetxt');wrapper
+    var wrapper=document.querySelector('.wrapper');
+
+    time.addEventListener('click',function(){
+        timetxt.style.display='block';
+        matetxt.style.display='none';
+        feetxt.style.display="none";
+        wrapper.style.display='none';
+
+
+    })
+    learn.addEventListener('click',function(){
+        matetxt.style.display='block';
+        timetxt.style.display='none';
+        feetxt.style.display="none";
+        wrapper.style.display='none';
+
+    })
+    fees.addEventListener('click',function(){
+        matetxt.style.display='none';
+        timetxt.style.display='none';
+        feetxt.style.display="block";
+        wrapper.style.display='none';
+    })
+    fac.addEventListener('click',function(){
+      wrapper.style.display='block';
+        timetxt.style.display='none';
+        matetxt.style.display='none';
+        feetxt.style.display="none";
+    })
+
+
+
+
+function openNav() {
+  document.getElementById("mySidebar").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidebar").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+}
+</script>
+   
+</body>
+</html> 
