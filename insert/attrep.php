@@ -104,13 +104,18 @@ label{
     width: 100%;
     height: 100vh;
 }
+.logout{
+    position:absolute;
+    top: 2%;
+    right:2%;
+}
 
     </style>
 </head>
 <body>
 <div class="logout">
 <form action="" method="post">
-  <button class="logout" name="logout">Logout</button>
+  <button class="logout" class="btn btn-outline-danger" name="logout">Logout</button>
   </form>
 </div>
 
